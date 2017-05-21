@@ -19,12 +19,16 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "babel-preset-es2015": "^6.24.1",
     "express": "^4.15.3",
     "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
     "react-router": "^2.0.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
     "webpack-hot-middleware": "^2.18.0"
   }
 }
