@@ -1,9 +1,19 @@
 import path from 'path'
+import webpack from 'webpack';
 module.exports = {
   devtools: 'eval-source-map',
-  entry:path.join(__dirname,'/client/index.js'),
+  entry:[
+    'webpack-hot-middleware/client',
+    path.join(__dirname,'/client/index.js'),
+  ],
+  plugins:[
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ],
   output: {
-    path:'/'
+    path:'/',
+    publicPath:'/'
   },
   module: {
     loaders: [{
