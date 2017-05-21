@@ -5,6 +5,7 @@ import axios from 'axios'
 import classnames from 'classnames';
 import validateInput from '../../../server/shared/validations/signup'
 import TextFieldGroup from '../common/TextFieldGroup';
+import {browserHistory} from 'react-route'
 
 
 class Signupform extends React.Component {
@@ -46,7 +47,9 @@ onSubmit(e){
     console.log(this.state);
     //axios.post('/api/users',{user:this.state});
     this.props.userSignupRequest(this.state).then(
-      () =>{},
+      () =>{
+        browserHistory.push('/');
+      },
       ({data}) => {this.setState({errors:data,isLoading:false})}
     );
   }
