@@ -5,7 +5,7 @@ import axios from 'axios'
 import classnames from 'classnames';
 import validateInput from '../../../server/shared/validations/signup'
 import TextFieldGroup from '../common/TextFieldGroup';
-import {browserHistory} from 'react-route'
+import {browserHistory} from 'react-router'
 
 
 class Signupform extends React.Component {
@@ -48,6 +48,10 @@ onSubmit(e){
     //axios.post('/api/users',{user:this.state});
     this.props.userSignupRequest(this.state).then(
       () =>{
+        this.props.addFlashMessage({
+          type:'success',
+          text: 'You signed up successfully. Welcome'
+        })
         browserHistory.push('/');
       },
       ({data}) => {this.setState({errors:data,isLoading:false})}
@@ -126,7 +130,8 @@ onSubmit(e){
 }
 
 Signupform.propTypes = {
-  userSignupRequest: React.PropTypes.func.isRequired
+  userSignupRequest: React.PropTypes.func.isRequired,
+  addFlashMessage: React.PropTypes.func.isRequired
 }
 
 export default Signupform;
